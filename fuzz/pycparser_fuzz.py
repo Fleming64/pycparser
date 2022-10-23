@@ -7,10 +7,12 @@ import os
 with atheris.instrument_imports():
     from pycparser import c_parser
 
+parser = c_parser.CParser()
+
 @atheris.instrument_func
 def TestOneInput(data):
     fdp = atheris.FuzzedDataProvider(data)
-    c_parser.CParser().parse(fdp.ConsumeUnicode(len(data)))
+    parser.parse(fdp.ConsumeUnicode(len(data)))
 
 
 atheris.Setup(sys.argv, TestOneInput)

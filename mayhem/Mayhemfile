@@ -1,5 +1,7 @@
 project: pycparser
 target: pycparser_fuzz
+testsuite:
+  - file:///pycparser/examples/c_files/
 
 cmds:
     - cmd: /pycparser/fuzz/pycparser_fuzz.py
