@@ -9,7 +9,8 @@ with atheris.instrument_imports():
 
 @atheris.instrument_func
 def TestOneInput(data):
-    c_parser.CParser().parse(data.decode("utf8"))
+    fdp = atheris.FuzzedDataProvider(data)
+    c_parser.CParser().parse(fdp.ConsumeUnicode(len(data)))
 
 
 atheris.Setup(sys.argv, TestOneInput)
