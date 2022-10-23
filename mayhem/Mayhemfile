@@ -1,0 +1,6 @@
+project: pycparser
+target: pycparser_fuzz
+
+cmds:
+    - cmd: /pycparser/fuzz/pycparser_fuzz.py
+      libfuzzer: true
